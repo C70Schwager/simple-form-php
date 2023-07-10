@@ -19,17 +19,53 @@
 <body>
     <nav>
         <a href="index.php">Home</a>
-        <a href="about.php">Home</a>
-        <a href="index.php">Home</a>
+        <a href="about.php">About</a>
+        <a href="result.php">Result</a>
     </nav>
     <?php
         session_start();
 
-        $neue_variable = 'Irgendwas';
+        if(isset($_POST['vorname'])) {
+            $_SESSION['vorname'] = $_POST['vorname'];
+        }
 
-        $ SESSION['vorname'] = $ POST_['vorname'];
-        $ SESSION['name'] = $ POST_['name'];
-        print_r($_SESSION);
+        if(isset($_SESSION['vorname'])) {
+
+            echo 'Neuer Vorname: '. $_SESSION['vorname'];
+        } else {
+            echo 'Vorname fehlt!';
+        }
+
+        echo '<br>';
+
+        if(isset($_POST['name'])) {
+            $_SESSION['name'] = $_POST['name'];
+        }
+
+        if(isset($_SESSION['name'])) {
+
+            echo 'Neuer Nachname: '. $_SESSION['name'];
+        } else {
+            echo 'Vorname fehlt!';
+        }
+        echo '<br>';
+
+        if(isset($_POST['nummer'])) {
+
+            if(isset($_SESSION['nummer'])) {
+                $_SESSION['nummer'] = $_SESSION['nummer'] + $_POST['nummer'];
+            } else {
+                $_SESSION['nummer'] = $_POST['nummer'];
+            }
+        }
+        if(isset($_SESSION['nummer'])) {
+
+            echo 'Neue Nummer: '. $_SESSION['nummer'];
+        } else {
+            echo 'Nummer fehlt!';
+        }
+
+        // print_r($_SESSION);
     ?>
 </body>
 </html>

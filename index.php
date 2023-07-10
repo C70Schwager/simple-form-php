@@ -15,15 +15,26 @@
 <title>PHP Intro | Forms in PHP</title>
 </head>
 
+<header>
+<div class="container">
+    <div class="row">
+        <div class="colum1">
+        <div class="colum2">
+        <div class="colum3">
+</div>
+
+
+</header>
+
 
 
 <body>
 
 
     <nav>
-        <a href="index.php">Home</a>
-        <a href="about.php">Home</a>
-        <a href="index.php">Home</a>
+        <a href="home.php">Home</a>
+        <a href="about.php">About</a>
+        <a href="result.php">Result</a>
     </nav>
 
     <form action="result.php" method="post">
@@ -31,14 +42,50 @@
     <div class="row mb-4">
             <div class="form-group col">
                 <label for="vorname">Vorname:</label>
-            <input class="form-control mb-2" type="text" name="vorSname">
-        </div>
+
+            <?php
+                session_start();
+                if(isset($_SESSION['vorname'])) {
+                    echo '<input type="text" name="vorname" value="' . $_SESSION['vorname'] .'">';
+                } else {
+                    echo '<input type="text" name="vorname">';
+                }
+            ?>
+            </div>
+    </div>
 
         <div class="row mb-4">
             <div class="form-group col">
-                <label for="name">Name:</label>
-            <input class="form-control mb-2" type="text" name="name">
+                <label for="name">Name:    </label>
+
+                <?php
+
+                if(isset($_SESSION['name'])) {
+                    echo '<input type="text" name="name" value="' . $_SESSION['name'] .'">';
+                } else {
+                    echo '<input type="text" name="name">';
+                }
+            ?>
         </div>
+
+        <div class = "form-group col">
+            <label for = "nachname">Meine Nummer: </label>
+
+            <?php
+                print_r ($_SESSION['nummer']);
+                if(isset($_SESSION['nummer'])) {
+                    echo '<input type = "number" name = "nummer" value = "'.$_SESSION['nummer'].'">';
+                } else {
+                    echo '<input type = "number" name = "nummer">';
+                }
+            ?>
+        </div>
+            
+
+
+        <input type = "submit" class = "btn-primary mb-2" value = "senden">
+    </div>
+    </form>
 
 </body>
 </html>
