@@ -9,6 +9,10 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="../../assets/css/style.css">
+
+<title>PHP Intro | Forms in PHP</title>
 </head>
 
 
@@ -16,51 +20,25 @@
 <body>
 
 
-<nav>
-    <a href="index.php">Home</a>
-    <a href="about.php">About</a>
-    <a href="index.php">Result</a>
-</nav>
+    <nav>
+        <a href="index.php">Home</a>
+        <a href="about.php">Home</a>
+        <a href="index.php">Home</a>
+    </nav>
 
-<form action="result.php" method="post">
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name"><br>
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email"><br>
+    <form action="result.php" method="post">
 
-<?php
+    <div class="row mb-4">
+            <div class="form-group col">
+                <label for="vorname">Vorname:</label>
+            <input class="form-control mb-2" type="text" name="vorSname">
+        </div>
 
-
-  function yesNoQuestion($quid, $questionText, $answers, $correctAnswerIndex) {
-    echo "<p>&nbsp;</p>
-        <p>$questionText</p>
-        <input type='radio' id='r-$quid-0' name='radio-$quid' value=$answers[0]'>
-        <label for='r-$quid-0'>$ansers[0]</label><br>
-        <input type='radio' id='r-$quid-1' name= radio-'$quid' value='$answers[1]'>
-        <label for='r-$quid-1'>$answers[1]</label><br><br>";
-
-        echo "<input type='hidden' name= 'correctAnswerIndex' value='$correctAnswerIndex'>";
-  }
-
-
-      $quid = "01";
-      $questionText = "Geht es dir heute gut?";
-      $answers = array("ja", "nein");
-      $correctAnswerIndex = 1:
-?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <div class="row mb-4">
+            <div class="form-group col">
+                <label for="name">Name:</label>
+            <input class="form-control mb-2" type="text" name="name">
+        </div>
 
 </body>
+</html>
